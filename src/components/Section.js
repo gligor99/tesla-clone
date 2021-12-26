@@ -1,20 +1,25 @@
 import React from "react";
+import { Fade } from "react-awesome-reveal";
 import styled from "styled-components";
 
 const Section = ({ title, desc, backgroundImg, leftBtnText, rightBtnText }) => {
   return (
     <Wrapper bgImage={backgroundImg}>
-      <ItemText>
-        <h1>{title}</h1>
-        <p>{desc}</p>
-      </ItemText>
-      <Buttons>
-        <ButtonGroup>
-          <LeftButton>{leftBtnText}</LeftButton>
-          {rightBtnText && <RightButton>{rightBtnText}</RightButton>}
-        </ButtonGroup>
-        <DownArrow src={"/images/down-arrow.svg"} />
-      </Buttons>
+      <Fade delay={300}>
+        <ItemText>
+          <h1>{title}</h1>
+          <p>{desc}</p>
+        </ItemText>
+      </Fade>
+      <Fade delay={300}>
+        <Buttons>
+          <ButtonGroup>
+            <LeftButton>{leftBtnText}</LeftButton>
+            {rightBtnText && <RightButton>{rightBtnText}</RightButton>}
+          </ButtonGroup>
+          <DownArrow src={"/images/down-arrow.svg"} />
+        </Buttons>
+      </Fade>
     </Wrapper>
   );
 };
@@ -34,6 +39,7 @@ const Wrapper = styled.div`
 `;
 
 const ItemText = styled.div`
+  z-index: 10;
   padding-top: 15vh;
   text-align: center;
   opacity: 0.85;
