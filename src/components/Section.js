@@ -1,19 +1,18 @@
 import React from "react";
 import styled from "styled-components";
-import image from "../assets/images/model-s.jpg";
 import arrowIcon from "../assets/images/down-arrow.svg";
 
-const Section = () => {
+const Section = ({ title, desc, backgroundImg, leftBtnText, rightBtnText }) => {
   return (
-    <Wrapper>
+    <Wrapper bgImage={backgroundImg}>
       <ItemText>
-        <h1>Model S</h1>
-        <p>Order Online For Touchless Delivery</p>
+        <h1>{title}</h1>
+        <p>{desc}</p>
       </ItemText>
       <Buttons>
         <ButtonGroup>
-          <LeftButton>Custom Order</LeftButton>
-          <RightButton>Existing Inventory</RightButton>
+          <LeftButton>{leftBtnText}</LeftButton>
+          {rightBtnText && <RightButton>{rightBtnText}</RightButton>}
         </ButtonGroup>
         <DownArrow src={arrowIcon} />
       </Buttons>
@@ -28,16 +27,21 @@ const Wrapper = styled.div`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url(${image});
   display: flex;
   flex-direction: column;
   justify-content: space-between; // Vertical Alignment
   align-items: center; // Horizontal Aligment
+  background-image: ${(props) => `url("/images/${props.bgImage}")`};
 `;
 
 const ItemText = styled.div`
   padding-top: 15vh;
   text-align: center;
+  opacity: 0.85;
+
+  h1 {
+    font-size: 2.5rem;
+  }
 
   p {
     font-weight: 400;
@@ -50,7 +54,7 @@ const ButtonGroup = styled.div`
   display: flex;
   margin-bottom: 1.875rem;
   @media (max-width: 768px) {
-      flex-direction: column;
+    flex-direction: column;
   }
 `;
 
