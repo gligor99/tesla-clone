@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import arrowIcon from "../assets/images/down-arrow.svg";
 
 const Section = ({ title, desc, backgroundImg, leftBtnText, rightBtnText }) => {
   return (
@@ -14,7 +13,7 @@ const Section = ({ title, desc, backgroundImg, leftBtnText, rightBtnText }) => {
           <LeftButton>{leftBtnText}</LeftButton>
           {rightBtnText && <RightButton>{rightBtnText}</RightButton>}
         </ButtonGroup>
-        <DownArrow src={arrowIcon} />
+        <DownArrow src={"/images/down-arrow.svg"} />
       </Buttons>
     </Wrapper>
   );
