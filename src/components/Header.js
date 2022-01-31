@@ -1,9 +1,11 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
 import styled from "styled-components";
-import { FaWindowClose } from "react-icons/fa";
 import { selectCars } from "../features/car/carSlice";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+// Icons
+import { FaWindowClose } from "react-icons/fa";
 
 const Header = () => {
   const [burgerStatus, setBurgerStatus] = useState(false);
@@ -12,20 +14,28 @@ const Header = () => {
 
   return (
     <Container>
-      <a href="#">
-        <img src="/images/logo.svg" alt="logo.svg" />
-      </a>
+      <LeftMenu>
+        <Link to="#">
+          <img src="/images/logo.svg" alt="logo.svg" />
+        </Link>
+      </LeftMenu>
       <Menu>
-        {cars && cars.map((car, index) => {
-         return  <a key={index} href="#">{car}</a>
-        })}
+        {cars &&
+          cars.map((car, index) => {
+            return (
+              <Link key={index} to={car}>
+                {car}
+              </Link>
+            );
+          })}
       </Menu>
       <RightMenu>
-        <a href="#">Shop</a>
-        <a href="#">Account</a>
-        <a href="#" onClick={() => setBurgerStatus(true)}>
+        <Link to="shop">Shop</Link>
+        <Link to="account">Account</Link>
+        <Link to="menu" onClick={() => setBurgerStatus(true)}>
+          {" "}
           Menu
-        </a>
+        </Link>
       </RightMenu>
       <BurgerNav show={burgerStatus}>
         <CloseWrapper>
@@ -98,6 +108,10 @@ const Container = styled.div`
   z-index: 1;
 `;
 
+const LeftMenu = styled.div`
+  width: 243px;
+`;
+
 const Menu = styled.div`
   display: flex;
   align-items: center;
@@ -113,6 +127,13 @@ const Menu = styled.div`
     font-weight: 500;
     text-transform: none;
     flex-wrap: nowrap;
+    transition: 0.3s;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+    }
   }
 `;
 
@@ -122,6 +143,13 @@ const RightMenu = styled.div`
     font-weight: 500;
     text-transform: none;
     flex-wrap: nowrap;
+    transition: 0.3s;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+    }
   }
 `;
 
@@ -142,7 +170,13 @@ const BurgerNav = styled.div`
   transition: transform 0.3s;
 
   li {
-    padding: 1rem 0;
+    padding: 1rem 1rem;
+    transition: 0.3s;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+      border-radius: 0.5rem;
+    }
 
     a {
       font-weight: 500;
@@ -153,9 +187,16 @@ const BurgerNav = styled.div`
 const CloseWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
+  margin-bottom: 2rem;
   padding: 0.25rem 1.5rem;
 
   .close {
+    height: 1.5rem;
+    width: 1.5rem;
     cursor: pointer;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
   }
 `;
