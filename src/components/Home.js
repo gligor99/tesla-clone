@@ -7,7 +7,6 @@ const Home = () => {
   return (
     <Container>
       <Section
-        id="Model S"
         title="Model S"
         desc="Order Online For Touchless Delivery"
         backgroundImg="model-s.jpg"
@@ -15,7 +14,6 @@ const Home = () => {
         rightBtnText="Existing Inventory"
       />
       <Section
-        id="Model 3"
         title="Model 3"
         desc="Order Online For Touchless Delivery"
         backgroundImg="model-3.jpg"
@@ -23,6 +21,7 @@ const Home = () => {
         rightBtnText="Existing Inventory"
       />
       <Section
+        id="model-x"
         title="Model X"
         desc="Order Online For Touchless Delivery"
         backgroundImg="model-x.jpg"
@@ -63,5 +62,4 @@ export default Home;
 
 // Styles
 const Container = styled.div`
-  height: 100vh;
 `;

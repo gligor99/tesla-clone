@@ -3,9 +3,10 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { selectCars } from "../features/car/carSlice";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+
 // Icons
 import { FaWindowClose } from "react-icons/fa";
+import { Link } from "react-scroll";
 
 const Header = () => {
   const [burgerStatus, setBurgerStatus] = useState(false);
@@ -15,7 +16,7 @@ const Header = () => {
   return (
     <Container>
       <LeftMenu>
-        <Link to="#">
+        <Link to="model-x">
           <img src="/images/logo.svg" alt="logo.svg" />
         </Link>
       </LeftMenu>
@@ -23,14 +24,23 @@ const Header = () => {
         {cars &&
           cars.map((car, index) => {
             return (
-              <Link key={index} to={car}>
+              <Link key={index} to="model-x">
                 {car}
               </Link>
             );
           })}
       </Menu>
       <RightMenu>
-        <Link to="shop">Shop</Link>
+        <Link
+          activeClass="active"
+          to="model-x"
+          spy={true}
+          smooth={true}
+          offset={-70}
+          duration={500}
+        >
+          Shop
+        </Link>
         <Link to="account">Account</Link>
         <Link to="menu" onClick={() => setBurgerStatus(true)}>
           {" "}

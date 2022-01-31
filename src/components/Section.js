@@ -1,6 +1,7 @@
 import React from "react";
 import { Fade } from "react-awesome-reveal";
 import styled from "styled-components";
+import { Link } from "react-scroll";
 
 const Section = ({ title, desc, backgroundImg, leftBtnText, rightBtnText }) => {
   return (
@@ -17,7 +18,9 @@ const Section = ({ title, desc, backgroundImg, leftBtnText, rightBtnText }) => {
             <LeftButton>{leftBtnText}</LeftButton>
             {rightBtnText && <RightButton>{rightBtnText}</RightButton>}
           </ButtonGroup>
-          <DownArrow src={"/images/down-arrow.svg"} />
+          <Link>
+            <DownArrow src={"/images/down-arrow.svg"} />
+          </Link>
         </Buttons>
       </Fade>
     </Wrapper>
