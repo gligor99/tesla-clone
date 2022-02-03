@@ -1,12 +1,14 @@
 import React from "react";
-import styled from "styled-components";
+// import styled from "styled-components";
+import ReactPageScroller from "react-page-scroller";
 // Components
 import Section from "./Section";
 
 const Home = () => {
   return (
-    <Container>
+    <ReactPageScroller>
       <Section
+        id="model-s"
         title="Model S"
         desc="Order Online For Touchless Delivery"
         backgroundImg="model-s.jpg"
@@ -14,6 +16,7 @@ const Home = () => {
         rightBtnText="Existing Inventory"
       />
       <Section
+        id="model-3"
         title="Model 3"
         desc="Order Online For Touchless Delivery"
         backgroundImg="model-3.jpg"
@@ -55,11 +58,11 @@ const Home = () => {
         backgroundImg="accessories.jpg"
         leftBtnText="Order Now"
       />
-    </Container>
+    </ReactPageScroller>
   );
 };
 export default Home;
 
 // Styles
-const Container = styled.div`
-`;
+// const Container = styled.div`
+// `;

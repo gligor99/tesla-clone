@@ -6,7 +6,6 @@ import { useSelector } from "react-redux";
 
 // Icons
 import { FaWindowClose } from "react-icons/fa";
-import { Link } from "react-scroll";
 
 const Header = () => {
   const [burgerStatus, setBurgerStatus] = useState(false);
@@ -16,36 +15,23 @@ const Header = () => {
   return (
     <Container>
       <LeftMenu>
-        <Link to="model-x">
+        <a>
           <img src="/images/logo.svg" alt="logo.svg" />
-        </Link>
+        </a>
       </LeftMenu>
       <Menu>
         {cars &&
           cars.map((car, index) => {
-            return (
-              <Link key={index} to="model-x">
-                {car}
-              </Link>
-            );
+            return <a key={index}>{car}</a>;
           })}
       </Menu>
       <RightMenu>
-        <Link
-          activeClass="active"
-          to="model-x"
-          spy={true}
-          smooth={true}
-          offset={-70}
-          duration={500}
-        >
-          Shop
-        </Link>
-        <Link to="account">Account</Link>
-        <Link to="menu" onClick={() => setBurgerStatus(true)}>
+        <a>Shop</a>
+        <a to="account">Account</a>
+        <a to="menu" onClick={() => setBurgerStatus(true)}>
           {" "}
           Menu
-        </Link>
+        </a>
       </RightMenu>
       <BurgerNav show={burgerStatus}>
         <CloseWrapper>
@@ -106,7 +92,6 @@ export default Header;
 // Styles
 const Container = styled.div`
   min-height: 3.75rem;
-  /* width: 100%; */
   position: fixed;
   display: flex;
   justify-content: space-between;
@@ -128,7 +113,7 @@ const Menu = styled.div`
   justify-content: center;
   flex: 1;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1058px) {
     display: none;
   }
 

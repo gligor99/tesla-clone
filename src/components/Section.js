@@ -1,9 +1,8 @@
 import React from "react";
-import { Fade } from "react-awesome-reveal";
 import styled from "styled-components";
-import { Link } from "react-scroll";
+import { Fade } from "react-awesome-reveal";
 
-const Section = ({ title, desc, backgroundImg, leftBtnText, rightBtnText }) => {
+const Section = ({ title, desc, backgroundImg, leftBtnText, rightBtnText}) => {
   return (
     <Wrapper bgImage={backgroundImg}>
       <Fade delay={300}>
@@ -18,9 +17,9 @@ const Section = ({ title, desc, backgroundImg, leftBtnText, rightBtnText }) => {
             <LeftButton>{leftBtnText}</LeftButton>
             {rightBtnText && <RightButton>{rightBtnText}</RightButton>}
           </ButtonGroup>
-          <Link>
+          <span>
             <DownArrow src={"/images/down-arrow.svg"} />
-          </Link>
+          </span>
         </Buttons>
       </Fade>
     </Wrapper>
@@ -61,7 +60,8 @@ const Buttons = styled.div``;
 const ButtonGroup = styled.div`
   display: flex;
   margin-bottom: 1.875rem;
-  @media (max-width: 768px) {
+
+  @media (max-width: 1050px) {
     flex-direction: column;
   }
 `;

@@ -28,6 +28,6 @@ const Container = styled.div`
   }
 
   span {
-      word-spacing: 1rem;
+    word-spacing: 1rem;
   }
 `;
